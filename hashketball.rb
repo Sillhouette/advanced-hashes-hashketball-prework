@@ -212,3 +212,17 @@ def player_with_longest_name
   end
   player_name
 end
+
+def most_points_scored
+  points = 0
+  player_name = ""
+  game_hash.each do |team, team_values|
+    team_values[:players].each do |player|
+      if player[:points] > points
+        points = player[:points]
+        player_name = player[:player_name]
+      end
+    end
+  end
+  player_name
+end
