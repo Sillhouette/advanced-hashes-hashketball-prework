@@ -125,6 +125,20 @@ def game_hash
   }
 end
 
+def player_stats(name)
+  result = {}
+  game_hash.each do |team, team_values|
+    team_values[:players].each do |player|
+      if player[:player_name] == name
+        player.each do |key, value|
+          result[key] = value unless key == :player_name
+        end
+      end
+    end
+  end
+  result
+end
+
 def player_with_longest_name
   length = 0
   player_name = ""
