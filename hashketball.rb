@@ -213,6 +213,21 @@ def player_with_longest_name
   player_name
 end
 
+def winning_team
+  home = 0
+  away = 0
+  game_hash.each do |team, team_values|
+    team_values[:players].each do |player|
+      if team == :home
+        home += player[:points]
+      else
+        away += player[:points]
+      end
+    end
+  end
+  home > away ? "Brooklyn Nets" : "Charlotte Hornets"
+end
+
 def most_points_scored
   points = 0
   player_name = ""
