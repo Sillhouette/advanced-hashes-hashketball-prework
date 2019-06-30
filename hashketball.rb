@@ -185,6 +185,20 @@ def player_stats(name)
   result
 end
 
+def big_shoe_rebounds
+  shoe_size = 0
+  rebounds = 0
+  game_hash.each do |team, team_values|
+    team_values[:players].each do |player|
+      if player[:shoe] > shoe_size
+        shoe_size = player[:shoe]
+        rebounds = player[:rebounds]
+      end
+    end
+  end
+  rebounds
+end
+
 def player_with_longest_name
   length = 0
   player_name = ""
