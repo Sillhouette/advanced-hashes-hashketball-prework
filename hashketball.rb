@@ -153,6 +153,12 @@ def team_colors(name)
   end
 end
 
+def team_names
+  game_hash.collect do |team, team_values|
+    team_values[:team_name]
+  end
+end
+
 def player_stats(name)
   result = {}
   game_hash.each do |team, team_values|
